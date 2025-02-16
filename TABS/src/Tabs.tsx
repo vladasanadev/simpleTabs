@@ -1,4 +1,5 @@
 import React from "react";
+import './App.css';
 
 interface TabsProps {
   tabs: { id: number; title: string; content: string }[];
@@ -19,11 +20,16 @@ export default function Tabs({ tabs, activeTabId, onTabSelected }: TabsProps) {
               className={activeTabId === tab.id ? "is-active" : ""}
             >
               <a href={`#tab-${tab.id}`}>{tab.title}</a>
-              <p>{tab.content}</p>
+            
             </li>
           );
         })}
       </ul>
+      
+        <p>
+        {tabs.find((tab)=> tab.id === activeTabId)?.content}
+      </p>
+      
     </>
   );
 }
